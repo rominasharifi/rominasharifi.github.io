@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Romina Sharifi | Data Analyst</title>
+<meta name="description" content="Portfolio of Romina Sharifi, data analyst with an MSc in Applied Computer Science. SQL, Python, and machine learning projects.">
+<style>
+  :root {
+    --bg: #fbfaf7;
+    --surface: #ffffff;
+    --text: #1d2321;
+    --muted: #5b6662;
+    --line: #e4e1d9;
+    --accent: #0f766e;
+    --accent-soft: #e0f2ef;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121615;
+      --surface: #1a201f;
+      --text: #ecefed;
+      --muted: #a2aca8;
+      --line: #2b3331;
+      --accent: #5eead4;
+      --accent-soft: #17302d;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+
+  header.nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 90%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .nav .brand { font-weight: 700; color: var(--text); }
+  .nav nav { display: flex; gap: 18px; font-size: 0.95rem; }
+  .nav nav a { color: var(--muted); }
+  .nav nav a:hover { color: var(--text); text-decoration: none; }
+
+  .hero { padding: 72px 0 48px; }
+  .hero .eyebrow { color: var(--accent); font-weight: 600; letter-spacing: 0.04em; font-size: 0.9rem; }
+  .hero h1 { font-size: clamp(2rem, 6vw, 3.1rem); line-height: 1.1; margin: 8px 0 16px; letter-spacing: -0.02em; }
+  .hero p.lead { font-size: 1.15rem; color: var(--muted); max-width: 640px; margin: 0 0 24px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-block; padding: 10px 18px; border-radius: 8px; font-weight: 600; font-size: 0.95rem;
+    border: 1px solid var(--accent);
+  }
+  .btn.primary { background: var(--accent); color: var(--bg); }
+  .btn.primary:hover { text-decoration: none; opacity: 0.9; }
+  .btn.ghost { color: var(--accent); }
+  .btn.ghost:hover { background: var(--accent-soft); text-decoration: none; }
+
+  section { padding: 44px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 1.5rem; margin: 0 0 20px; letter-spacing: -0.01em; }
+  h3 { font-size: 1.1rem; margin: 0; }
+
+  .about p { margin: 0 0 14px; max-width: 700px; }
+
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .skill-box { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  .skill-box h3 { font-size: 0.95rem; color: var(--muted); font-weight: 600; margin-bottom: 10px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { background: var(--accent-soft); color: var(--accent); border-radius: 999px; padding: 3px 10px; font-size: 0.82rem; font-weight: 500; }
+
+  .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 16px; }
+  @media (max-width: 480px) { .projects { grid-template-columns: 1fr; } }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; }
+  .card .tag { font-size: 0.78rem; color: var(--muted); }
+  .card ul { margin: 0; padding-left: 18px; color: var(--text); font-size: 0.95rem; }
+  .card li { margin-bottom: 4px; }
+  .card .links { margin-top: auto; padding-top: 4px; font-size: 0.92rem; font-weight: 600; }
+
+  .job { margin-bottom: 22px; }
+  .job .meta { color: var(--muted); font-size: 0.92rem; margin-bottom: 6px; }
+  .job ul { margin: 0; padding-left: 18px; }
+  .job li { margin-bottom: 4px; }
+
+  .edu p { margin: 0 0 12px; }
+  .edu .meta { color: var(--muted); font-size: 0.92rem; }
+
+  .contact p { margin: 0 0 14px; max-width: 620px; }
+  .contact .btns { margin-top: 8px; }
+
+  footer { border-top: 1px solid var(--line); padding: 24px 0 40px; color: var(--muted); font-size: 0.9rem; }
+
+  @media (max-width: 560px) {
+    .nav nav { gap: 12px; font-size: 0.88rem; }
+    .hero { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Romina Sharifi</a>
+    <nav aria-label="Main">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+
+    <section class="hero" style="border-top:none">
+      <div class="eyebrow">DATA ANALYST &middot; METRO VANCOUVER, BC</div>
+      <h1>I turn messy data into clear answers.</h1>
+      <p class="lead">MSc in Applied Computer Science (GPA 3.80/4.00). I clean and standardize data with SQL and Python, find the patterns in it, and explain the results in plain language.</p>
+      <div class="btns">
+        <a class="btn primary" href="#projects">See my projects</a>
+        <a class="btn ghost" href="Romina_Sharifi_Resume.pdf">Download resume (PDF)</a>
+        <a class="btn ghost" href="https://github.com/rominasharifi">GitHub</a>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2>About</h2>
+      <p>I am a data analyst who enjoys the unglamorous part of the job: finding duplicates, fixing inconsistent values, and turning scattered records into one dataset people can trust. My hands-on work covers SQL data cleaning and exploratory analysis, machine learning in Python, and process documentation.</p>
+      <p>Alongside my studies I tutor high school math, which taught me to explain technical ideas step by step to people from different backgrounds. I currently build and document automated membership workflows for a non-profit.</p>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill-box">
+          <h3>Data analysis</h3>
+          <div class="chips">
+            <span class="chip">Data cleaning</span><span class="chip">Data quality checks</span><span class="chip">Data standardization</span><span class="chip">Exploratory analysis</span><span class="chip">Root-cause analysis</span><span class="chip">Documentation</span>
+          </div>
+        </div>
+        <div class="skill-box">
+          <h3>Databases and languages</h3>
+          <div class="chips">
+            <span class="chip">SQL (MySQL, SQL Server)</span><span class="chip">CTEs</span><span class="chip">Window functions</span><span class="chip">Python</span><span class="chip">MongoDB</span>
+          </div>
+        </div>
+        <div class="skill-box">
+          <h3>Tools</h3>
+          <div class="chips">
+            <span class="chip">Excel</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Scikit-learn</span><span class="chip">XGBoost</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">Jupyter</span><span class="chip">Git and GitHub</span><span class="chip">HubSpot</span><span class="chip">Zapier</span><span class="chip">Make</span><span class="chip">Figma</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+
+        <article class="card">
+          <div>
+            <h3>Layoffs Data Cleaning</h3>
+            <div class="tag">MySQL &middot; CTEs &middot; Window functions &middot; Guided practice project</div>
+          </div>
+          <ul>
+            <li>Cleaned a real-world dataset of 2,361 records.</li>
+            <li>Removed 5 duplicates with <code>ROW_NUMBER()</code> and standardized company, industry, country, and date fields.</li>
+            <li>Recovered 3 missing industry values with self joins.</li>
+          </ul>
+          <div class="links"><a href="https://github.com/rominasharifi/SQL-Layoffs-Data-Cleaning">View on GitHub &rarr;</a></div>
+        </article>
+
+        <article class="card">
+          <div>
+            <h3>Layoffs Data Analysis</h3>
+            <div class="tag">MySQL &middot; Aggregations &middot; Window functions</div>
+          </div>
+          <ul>
+            <li>Analyzed layoffs by company, industry, country, year, and month.</li>
+            <li>Built rolling monthly totals with window functions.</li>
+            <li>Ranked the top companies per year with <code>DENSE_RANK()</code>.</li>
+          </ul>
+          <div class="links"><a href="https://github.com/rominasharifi/SQL-Layoffs-Data-Analysis">View on GitHub &rarr;</a></div>
+        </article>
+
+        <article class="card">
+          <div>
+            <h3>Used Car Price Prediction</h3>
+            <div class="tag">Python &middot; Scikit-learn &middot; XGBoost &middot; Team of 5</div>
+          </div>
+          <ul>
+            <li>Regression on 188,533 vehicle listings, comparing Linear Regression and XGBoost with 5-fold cross-validation.</li>
+            <li>My part: data exploration and preprocessing, including missing values, high-cardinality features, and IQR outlier removal.</li>
+            <li>Tuned XGBoost with randomized search, then grid search.</li>
+          </ul>
+          <div class="links"><a href="https://github.com/rominasharifi/UsedCarPricePrediction">View on GitHub &rarr;</a></div>
+        </article>
+
+        <article class="card">
+          <div>
+            <h3>Breast Cancer Classification</h3>
+            <div class="tag">Python &middot; Scikit-learn &middot; SVM</div>
+          </div>
+          <ul>
+            <li>SVM classifier on 569 records and 30 features.</li>
+            <li>Feature scaling raised test accuracy from 94% to 96%.</li>
+            <li>5-fold GridSearchCV: 96% accuracy and 0.96 weighted F1 on 114 held-out records.</li>
+          </ul>
+          <div class="links"><a href="https://github.com/rominasharifi/BreastCancerClassification">View on GitHub &rarr;</a></div>
+        </article>
+
+        <article class="card">
+          <div>
+            <h3>Astro Event Hub</h3>
+            <div class="tag">React &middot; Node.js &middot; Express &middot; MySQL &middot; Socket.io &middot; Capstone</div>
+          </div>
+          <ul>
+            <li>Full-stack web application with event recommendations based on user preferences and activity.</li>
+            <li>Real-time chat with Socket.io.</li>
+            <li>Contributed to system design, testing, and technical documentation.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div>
+            <h3>E-Commerce Mobile App Design</h3>
+            <div class="tag">Figma &middot; Team of 2 &middot; MSc User Interface Design course</div>
+          </div>
+          <ul>
+            <li>Designed the mobile screens: introduction, onboarding, registration, home, product page, wishlist, profile, cart, and checkout.</li>
+            <li>Linked the screens into an interactive prototype.</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <div class="job">
+        <h3>Web Developer, Surfrider Foundation Netherlands</h3>
+        <div class="meta">Remote &middot; Feb 2026 to present</div>
+        <ul>
+          <li>Designed 5 automated member workflows (onboarding, payment reminder, payment confirmation, cancellation, and membership number assignment) using HubSpot, Zapier, Make, and Google Sheets.</li>
+          <li>Documented the membership system with written process notes and a video walkthrough covering all 5 workflows.</li>
+          <li>Maintain content, partner logos, and links across 3 core membership pages and other site pages.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Math Tutor, United for Literacy</h3>
+        <div class="meta">Britannia Secondary, Vancouver &middot; Jan 2025 to present</div>
+        <ul>
+          <li>Tutor 2 students one-on-one and assist about 15 students in group after-school classes.</li>
+          <li>About 80% of the students I worked with showed improvement.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Research Assistant, Fairleigh Dickinson University</h3>
+        <div class="meta">Vancouver &middot; Nov 2023 to Mar 2024</div>
+        <ul>
+          <li>Reviewed research papers on semantic segmentation and 3D hand pose estimation for a computer vision and machine learning project, and presented findings in team meetings.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="edu" id="education">
+      <h2>Education</h2>
+      <p><strong>MSc in Applied Computer Science</strong>, Fairleigh Dickinson University<br><span class="meta">May 2023 to Apr 2025 &middot; GPA 3.80/4.00</span></p>
+      <p><strong>BSc in Electrical Engineering</strong>, University of Tabriz<br><span class="meta">Sept 2017 to Apr 2021 &middot; GPA 3.32/4.00</span></p>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Contact</h2>
+      <p>I am open to data analyst roles, hybrid or remote, in the Vancouver area. The best way to reach me is by email.</p>
+      <div class="btns">
+        <a class="btn primary" href="mailto:rominasharifi1999@gmail.com">rominasharifi1999@gmail.com</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/romina-sharifi/">LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/rominasharifi">GitHub</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">&copy; 2026 Romina Sharifi</div>
+</footer>
+
+</body>
+</html>

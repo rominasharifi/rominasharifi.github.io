@@ -97,6 +97,27 @@
   .contact p { margin: 0 0 14px; max-width: 620px; }
   .contact .btns { margin-top: 8px; }
 
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; }
+  .stat { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+  .stat .num { font-size: 1.9rem; font-weight: 700; color: var(--accent); line-height: 1.1; letter-spacing: -0.02em; }
+  .stat .lbl { color: var(--muted); font-size: 0.9rem; margin-top: 6px; }
+
+  .cases { display: grid; gap: 18px; }
+  .case { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; }
+  .case header { margin-bottom: 14px; }
+  .case .tag { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
+  .case dl { margin: 0; display: grid; grid-template-columns: 110px 1fr; gap: 10px 16px; }
+  .case dt { font-weight: 700; font-size: 0.82rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); padding-top: 2px; }
+  .case dd { margin: 0; font-size: 0.97rem; }
+  .case .links { margin-top: 14px; font-weight: 600; font-size: 0.92rem; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  @media (max-width: 560px) {
+    .case dl { grid-template-columns: 1fr; gap: 2px; }
+    .case dt { margin-top: 10px; }
+  }
+  .more { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-top: 18px; }
+  @media (max-width: 480px) { .more { grid-template-columns: 1fr; } }
+
   footer { border-top: 1px solid var(--line); padding: 24px 0 40px; color: var(--muted); font-size: 0.9rem; }
 
   @media (max-width: 560px) {
@@ -111,6 +132,7 @@
   <div class="wrap">
     <a class="brand" href="#top">Romina Sharifi</a>
     <nav aria-label="Main">
+      <a href="#results">Results</a>
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
@@ -132,6 +154,17 @@
       </div>
     </section>
 
+
+    <section id="results">
+      <h2>Results at a glance</h2>
+      <div class="stats">
+        <div class="stat"><div class="num">188,533</div><div class="lbl">vehicle listings explored and prepared for a team price-prediction model</div></div>
+        <div class="stat"><div class="num">7,385</div><div class="lbl">ZIP codes scored by a T-SQL growth model, with a data mart, cube, and report</div></div>
+        <div class="stat"><div class="num">5</div><div class="lbl">automated membership workflows designed and documented</div></div>
+        <div class="stat"><div class="num">2,361</div><div class="lbl">records cleaned in SQL: 5 duplicates removed, 3 missing values recovered</div></div>
+      </div>
+    </section>
+
     <section class="about" id="about">
       <h2>About</h2>
       <p>I am a data analyst who enjoys the unglamorous part of the job: finding duplicates, fixing inconsistent values, and turning scattered records into one dataset people can trust. My hands-on work covers SQL data cleaning and exploratory analysis, machine learning in Python, and process documentation.</p>
@@ -150,74 +183,114 @@
         <div class="skill-box">
           <h3>Databases and languages</h3>
           <div class="chips">
-            <span class="chip">SQL (MySQL, SQL Server)</span><span class="chip">CTEs</span><span class="chip">Window functions</span><span class="chip">Python</span><span class="chip">MongoDB</span>
+            <span class="chip">SQL (T-SQL, MySQL)</span><span class="chip">CTEs</span><span class="chip">Window functions</span><span class="chip">Dynamic SQL</span><span class="chip">SQL functions</span><span class="chip">Star-schema data modeling</span><span class="chip">Python</span><span class="chip">MongoDB</span>
           </div>
         </div>
         <div class="skill-box">
           <h3>Tools</h3>
           <div class="chips">
-            <span class="chip">Excel</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Scikit-learn</span><span class="chip">XGBoost</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">Jupyter</span><span class="chip">Git and GitHub</span><span class="chip">HubSpot</span><span class="chip">Zapier</span><span class="chip">Make</span><span class="chip">Figma</span>
+            <span class="chip">Excel (PivotTables, charts)</span><span class="chip">SSRS</span><span class="chip">SSAS</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">Scikit-learn</span><span class="chip">XGBoost</span><span class="chip">Matplotlib</span><span class="chip">Seaborn</span><span class="chip">Jupyter</span><span class="chip">Git and GitHub</span><span class="chip">HubSpot</span><span class="chip">Zapier</span><span class="chip">Make</span><span class="chip">Figma</span>
           </div>
         </div>
       </div>
     </section>
 
     <section id="projects">
-      <h2>Projects</h2>
-      <div class="projects">
+      <h2>Selected projects</h2>
+      <div class="cases">
 
-        <article class="card">
-          <div>
-            <h3>Layoffs Data Cleaning</h3>
-            <div class="tag">MySQL &middot; CTEs &middot; Window functions &middot; Guided practice project</div>
-          </div>
-          <ul>
-            <li>Cleaned a real-world dataset of 2,361 records.</li>
-            <li>Removed 5 duplicates with <code>ROW_NUMBER()</code> and standardized company, industry, country, and date fields.</li>
-            <li>Recovered 3 missing industry values with self joins.</li>
-          </ul>
-          <div class="links"><a href="https://github.com/rominasharifi/SQL-Layoffs-Data-Cleaning">View on GitHub &rarr;</a></div>
+        <article class="case">
+          <header>
+            <h3>ZIP-Level Customer Growth Prediction</h3>
+            <div class="tag">T-SQL &middot; Dynamic SQL &middot; SSAS &middot; SSRS &middot; Excel &middot; BCIT COMP 2854 coursework</div>
+          </header>
+          <dl>
+            <dt>Problem</dt><dd>Which ZIP codes will order more next year than this year? Predicting growth could help decide where to focus marketing.</dd>
+            <dt>My role</dt><dd>Built the whole pipeline on the SQLBook database: features, model, evaluation, data mart, cube, and report.</dd>
+            <dt>Process</dt><dd>Built customer-history features from earlier years with a dynamic-SQL <code>PIVOT</code>, trained a lookup-table model on 2013 and 2014, and tested it on 2015. Added a state-aware version of the model, loaded the predictions into a star schema (1 fact and 3 dimension tables), built an SSAS cube on it, and created an SSRS performance report.</dd>
+            <dt>Result</dt><dd>7,385 ZIP codes scored: 61.7% accuracy, 20.1% precision and 53.6% recall for growth. Only 1,089 ZIP codes actually grew, so accuracy alone was misleading, and the model flagged many false positives.</dd>
+            <dt>Learning</dt><dd>With uneven classes, precision and recall tell the real story: an always-no-growth rule would be right 85.25% of the time, so my model did not beat that baseline on accuracy. Next I would add more features and tune the model for precision.</dd>
+          </dl>
+          <div class="links"><a href="https://github.com/rominasharifi/SQLBook-ZIP-Growth-Prediction">View on GitHub &rarr;</a></div>
         </article>
 
-        <article class="card">
-          <div>
-            <h3>Layoffs Data Analysis</h3>
-            <div class="tag">MySQL &middot; Aggregations &middot; Window functions</div>
-          </div>
-          <ul>
-            <li>Analyzed layoffs by company, industry, country, year, and month.</li>
-            <li>Built rolling monthly totals with window functions.</li>
-            <li>Ranked the top companies per year with <code>DENSE_RANK()</code>.</li>
-          </ul>
-          <div class="links"><a href="https://github.com/rominasharifi/SQL-Layoffs-Data-Analysis">View on GitHub &rarr;</a></div>
+        <article class="case">
+          <header>
+            <h3>SQLBook Sales and Customer Analytics</h3>
+            <div class="tag">T-SQL &middot; SQL Server &middot; Excel &middot; BCIT COMP 2854 coursework</div>
+          </header>
+          <dl>
+            <dt>Problem</dt><dd>A retail orders database (2009 to 2015) had broken relationships between tables, and the business questions needed reliable joins, rankings, and trends.</dd>
+            <dt>My role</dt><dd>Wrote and documented every query and function, with a stated goal for each.</dd>
+            <dt>Process</dt><dd>Compared order value, revenue, and customer return behavior across 2012 to 2015 with CTEs and window functions. Found orphaned records across 7 table relationships, removed them, and added primary and foreign keys. Wrote 10 parameterized functions for ZIP-code demographics and customer activity, plus binomial-probability and z-score functions. Built a subscriber-tenure lookup model and checked it with a 10-group value chart.</dd>
+            <dt>Result</dt><dd>Average web-channel order value rose from $79 in 2012 to $102 in 2015. The tenure model was scored on about 1.29 million subscribers. Also exported 2,000 high-vacancy ZIP codes to a KML file for map display.</dd>
+          </dl>
+          <div class="links"><a href="https://github.com/rominasharifi/SQLBook-Sales-Analytics">View on GitHub &rarr;</a></div>
         </article>
 
-        <article class="card">
-          <div>
+        <article class="case">
+          <header>
+            <h3>Membership workflow automation</h3>
+            <div class="tag">Surfrider Foundation Netherlands &middot; HubSpot &middot; Zapier &middot; Make &middot; Stripe &middot; Google Sheets</div>
+          </header>
+          <dl>
+            <dt>Problem</dt><dd>Member sign-ups, payments, and cancellations needed manual follow-up.</dd>
+            <dt>My role</dt><dd>Web developer: designed the workflow logic and wrote the documentation.</dd>
+            <dt>Process</dt><dd>Automated form capture, contact creation, status updates, emails, payment reminders, and Google Sheets logging.</dd>
+            <dt>Result</dt><dd>5 workflows designed (onboarding, payment reminder, payment confirmation, cancellation, membership number assignment), with written notes and a video walkthrough for all 5.</dd>
+          </dl>
+        </article>
+
+        <article class="case">
+          <header>
             <h3>Used Car Price Prediction</h3>
-            <div class="tag">Python &middot; Scikit-learn &middot; XGBoost &middot; Team of 5</div>
-          </div>
-          <ul>
-            <li>Regression on 188,533 vehicle listings, comparing Linear Regression and XGBoost with 5-fold cross-validation.</li>
-            <li>My part: data exploration and preprocessing, including missing values, high-cardinality features, and IQR outlier removal.</li>
-            <li>Tuned XGBoost with randomized search, then grid search.</li>
-          </ul>
+            <div class="tag">Python &middot; Pandas &middot; Scikit-learn &middot; XGBoost &middot; Team of 5</div>
+          </header>
+          <dl>
+            <dt>Problem</dt><dd>Used car prices vary widely, and buyers and sellers need fair price estimates. The data had missing values, high-cardinality fields, and outliers.</dd>
+            <dt>My role</dt><dd>Data exploration and preprocessing together with a teammate, and I presented those sections in the final class presentation.</dd>
+            <dt>Process</dt><dd>Filled missing values with an "Unknown" category, combined brand and model into one feature, and removed mileage outliers with the IQR method per model year. The team then compared Linear Regression and XGBoost with 5-fold cross-validation and tuned XGBoost with randomized and grid search.</dd>
+            <dt>Result</dt><dd>188,533 listings prepared for modeling; 4,666 mileage outliers removed (183,867 rows kept).</dd>
+          </dl>
           <div class="links"><a href="https://github.com/rominasharifi/UsedCarPricePrediction">View on GitHub &rarr;</a></div>
         </article>
 
-        <article class="card">
-          <div>
-            <h3>Breast Cancer Classification</h3>
-            <div class="tag">Python &middot; Scikit-learn &middot; SVM</div>
+        <article class="case">
+          <header>
+            <h3>Layoffs: SQL Cleaning and Analysis</h3>
+            <div class="tag">MySQL &middot; CTEs &middot; Window functions &middot; Guided practice project</div>
+          </header>
+          <dl>
+            <dt>Problem</dt><dd>A global layoffs dataset had duplicates, inconsistent labels, text dates, and missing values, so it could not be analyzed reliably.</dd>
+            <dt>My role</dt><dd>Recreated and practiced a public tutorial project on my own in MySQL Workbench.</dd>
+            <dt>Process</dt><dd>Removed duplicates with <code>ROW_NUMBER()</code>, standardized company, industry, and country values, converted dates, and filled missing industries with self joins. Then built analysis queries: totals by company, industry, country, year, and month, rolling monthly totals, and top companies per year with <code>DENSE_RANK()</code>.</dd>
+            <dt>Result</dt><dd>2,361 records cleaned: 5 duplicates removed and 3 missing industry values recovered.</dd>
+            <dt>Learning</dt><dd>How to approach a real-world dataset with SQL, and how joins and window functions help find and fix data quality problems.</dd>
+          </dl>
+          <div class="links">
+            <a href="https://github.com/rominasharifi/SQL-Layoffs-Data-Cleaning">Cleaning on GitHub &rarr;</a>
+            <a href="https://github.com/rominasharifi/SQL-Layoffs-Data-Analysis">Analysis on GitHub &rarr;</a>
           </div>
-          <ul>
-            <li>SVM classifier on 569 records and 30 features.</li>
-            <li>Feature scaling raised test accuracy from 94% to 96%.</li>
-            <li>5-fold GridSearchCV: 96% accuracy and 0.96 weighted F1 on 114 held-out records.</li>
-          </ul>
+        </article>
+
+        <article class="case">
+          <header>
+            <h3>Breast Cancer Classification</h3>
+            <div class="tag">Python &middot; Scikit-learn &middot; SVM &middot; Individual project</div>
+          </header>
+          <dl>
+            <dt>Problem</dt><dd>Classify tumors as malignant or benign from 30 measurements per record (569 records).</dd>
+            <dt>My role</dt><dd>Everything: exploration, scaling, modeling, tuning, and evaluation.</dd>
+            <dt>Process</dt><dd>Trained a baseline SVM, applied min-max feature scaling, then tuned hyperparameters with 5-fold cross-validated GridSearchCV (16 combinations).</dd>
+            <dt>Result</dt><dd>Feature scaling raised test accuracy from 94% to 96%. The final model scored 96% accuracy and 0.96 weighted F1 on 114 held-out records, with 100% precision and 92% recall on malignant cases.</dd>
+            <dt>Next step</dt><dd>Fit the scaler on training data only and compare against other classifiers.</dd>
+          </dl>
           <div class="links"><a href="https://github.com/rominasharifi/BreastCancerClassification">View on GitHub &rarr;</a></div>
         </article>
 
+      </div>
+
+      <div class="more">
         <article class="card">
           <div>
             <h3>Astro Event Hub</h3>
@@ -240,7 +313,6 @@
             <li>Linked the screens into an interactive prototype.</li>
           </ul>
         </article>
-
       </div>
     </section>
 
